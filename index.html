@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pavan Bandla — Computer Science</title>
+  <meta name="description" content="Pavan Bandla — Computer Science student at Rutgers University and software engineer building practical tools. Portfolio, projects, and experience." />
+  <meta name="author" content="Pavan Krishna Bandla Leelavinod" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Pavan Bandla — Computer Science" />
+  <meta property="og:description" content="CS student at Rutgers building practical tools that turn messy data into clear decisions." />
+  <meta property="og:type" content="website" />
+
+  <!-- Inline SVG favicon: a terminal monogram -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230d1117'/%3E%3Cpath d='M26 34l16 16-16 16' fill='none' stroke='%2367e8f9' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cline x1='52' y1='68' x2='74' y2='68' stroke='%23a78bfa' stroke-width='8' stroke-linecap='round'/%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://github.com" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- ambient background -->
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <!-- ===================== NAV ===================== -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="#home" class="brand" aria-label="Home">
+        <span class="brand__mark">&gt;_</span>
+        <span class="brand__name">pavan<span class="brand__dot">.</span>bandla</span>
+      </a>
+
+      <nav class="nav__links" id="navLinks" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#certs">Certs</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav__actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle color theme" title="Toggle theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+        <a class="btn btn--ghost resume-link" href="assets/Pavan_Bandla_Resume.pdf" target="_blank" rel="noopener">Résumé</a>
+        <button class="icon-btn nav__burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===================== HERO ===================== -->
+    <section class="hero section" id="home">
+      <div class="container hero__inner">
+        <div class="hero__copy reveal">
+          <p class="pill"><span class="pulse"></span> Available for SWE internships</p>
+          <h1 class="hero__title">
+            Hi, I'm <span class="grad">Pavan&nbsp;Bandla</span>.
+          </h1>
+          <h2 class="hero__role">
+            <span class="prompt">$</span>
+            <span id="typed" class="typed"></span><span class="caret">▌</span>
+          </h2>
+          <p class="hero__lead">
+            Computer Science student at <strong>Rutgers University</strong> who builds practical tools —
+            turning messy data into clear decisions and repetitive work into automation.
+            Currently seeking a <strong>Software Engineering internship</strong>.
+          </p>
+          <div class="hero__cta">
+            <a href="#projects" class="btn btn--primary">View Projects</a>
+            <a href="#contact" class="btn btn--ghost">Get in touch</a>
+          </div>
+          <div class="hero__socials" aria-label="Social links">
+            <a href="https://github.com/PavanB9" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12 11.5 11.5 0 0 0 8.4 23c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0C17 5 18 5.3 18 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
+            </a>
+            <a href="https://linkedin.com/in/pavankbl/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V21H9z"/></svg>
+            </a>
+            <a href="mailto:pavankrishna2006@gmail.com" aria-label="Email" title="Email">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- terminal mockup -->
+        <div class="hero__term reveal" aria-hidden="true">
+          <div class="term">
+            <div class="term__bar">
+              <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
+              <span class="term__title">pavan@portfolio: ~</span>
+            </div>
+            <pre class="term__body"><code><span class="c-cmd">$ whoami</span>
+pavan_bandla
+<span class="c-cmd">$ cat about.txt</span>
+CS @ Rutgers '28 · New Jersey
+builds tools that ship.
+<span class="c-cmd">$ ls ~/stack</span>
+<span class="c-dir">python</span>  <span class="c-dir">java</span>  <span class="c-dir">javascript</span>
+<span class="c-dir">react</span>   <span class="c-dir">sql</span>   <span class="c-dir">c#</span>
+<span class="c-cmd">$ ./contact --now</span>
+<span class="c-ok">➜ opening channels...</span><span class="caret caret--term">▌</span></code></pre>
+          </div>
+        </div>
+      </div>
+      <a href="#about" class="scroll-cue" aria-label="Scroll down">
+        <span></span>
+      </a>
+    </section>
+
+    <!-- ===================== ABOUT ===================== -->
+    <section class="section" id="about">
+      <div class="container">
+        <p class="eyebrow reveal"><span>01</span> About</p>
+        <div class="about">
+          <div class="about__text reveal">
+            <h2 class="h2">A builder who likes shipping useful things.</h2>
+            <p>
+              I'm a Computer Science student at <strong>Rutgers University–New Brunswick</strong> (B.S., May 2028).
+              I gravitate toward problems where good engineering quietly makes someone's day easier —
+              cleaning up messy inventory exports, automating a tedious workflow, or turning raw data
+              into a dashboard that actually answers a question.
+            </p>
+            <p>
+              I've shipped features on a production analytics dashboard, prototyped AI-assisted tooling
+              with the OpenAI API, and built a handful of side projects across Python, Java, JavaScript,
+              and C#. I care about clean code, readable docs, and tools that respect the people using them.
+            </p>
+            <p>
+              Outside of class, you'll usually find me building something small and practical —
+              or reverse-engineering how something works so I can rebuild it better.
+            </p>
+          </div>
+          <aside class="about__facts reveal">
+            <div class="fact">
+              <span class="fact__k">Education</span>
+              <span class="fact__v">Rutgers University<br><em>B.S. Computer Science · '28</em></span>
+            </div>
+            <div class="fact">
+              <span class="fact__k">Location</span>
+              <span class="fact__v">New Jersey, USA</span>
+            </div>
+            <div class="fact">
+              <span class="fact__k">Focus</span>
+              <span class="fact__v">Software Engineering · Data &amp; Automation</span>
+            </div>
+            <div class="fact">
+              <span class="fact__k">Status</span>
+              <span class="fact__v"><span class="pulse pulse--inline"></span>Open to internships</span>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== EXPERIENCE ===================== -->
+    <section class="section" id="experience">
+      <div class="container">
+        <p class="eyebrow reveal"><span>02</span> Experience</p>
+        <h2 class="h2 reveal">Where I've worked</h2>
+        <ol class="timeline">
+          <li class="tl reveal">
+            <div class="tl__dot"></div>
+            <div class="tl__card">
+              <div class="tl__head">
+                <h3>Data Analyst — Warehouse</h3>
+                <span class="tl__date">Jun 2025 – Jul 2025</span>
+              </div>
+              <p class="tl__org">CCS Materials Inc. · Edison, NJ</p>
+              <ul class="tl__list">
+                <li>Monitored daily inbound/outbound shipment data against system records to catch discrepancies before they hit fulfillment.</li>
+                <li>Digitized paper-based warehouse logs into internal tracking systems, cutting manual lookup time and making records searchable across the team.</li>
+                <li>Built weekly Excel reports with charts that gave supervisors a quick read on inventory trends and recurring delay patterns.</li>
+              </ul>
+              <div class="tags">
+                <span class="tag">Excel</span><span class="tag">Data Analysis</span><span class="tag">Reporting</span>
+              </div>
+            </div>
+          </li>
+
+          <li class="tl reveal">
+            <div class="tl__dot"></div>
+            <div class="tl__card">
+              <div class="tl__head">
+                <h3>Software Engineer</h3>
+                <span class="tl__date">Feb 2025 – May 2025</span>
+              </div>
+              <p class="tl__org">Motate · Remote</p>
+              <ul class="tl__list">
+                <li>Designed, built, and tested features for a web-based analytics dashboard in JavaScript &amp; React, translating requirements into clean, usable UI.</li>
+                <li>Prototyped automated reporting tools with the OpenAI API, cutting time spent on repetitive data-gathering.</li>
+                <li>Owned technical docs and used Git/GitHub (branches, PRs, code reviews) to ship updates across a collaborative team.</li>
+              </ul>
+              <div class="tags">
+                <span class="tag">React</span><span class="tag">JavaScript</span><span class="tag">OpenAI API</span><span class="tag">Git</span>
+              </div>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===================== PROJECTS ===================== -->
+    <section class="section" id="projects">
+      <div class="container">
+        <p class="eyebrow reveal"><span>03</span> Projects</p>
+        <div class="section__head reveal">
+          <h2 class="h2">Things I've built</h2>
+          <a class="link-arrow" href="https://github.com/PavanB9?tab=repositories" target="_blank" rel="noopener">All repositories →</a>
+        </div>
+
+        <div class="grid">
+          <!-- InvTrendDB -->
+          <article class="card reveal">
+            <div class="card__top">
+              <div class="card__icon">📊</div>
+              <div class="card__links">
+                <a href="https://invtrend-db.streamlit.app" target="_blank" rel="noopener" class="card__link" title="Live demo" aria-label="Live demo">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
+                </a>
+                <a href="https://github.com/PavanB9/InvTrendDB" target="_blank" rel="noopener" class="card__link" title="Source" aria-label="GitHub source">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12 11.5 11.5 0 0 0 8.4 23c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0C17 5 18 5.3 18 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="card__title">InvTrendDB</h3>
+            <p class="card__badge">Live demo</p>
+            <p class="card__desc">
+              Interactive inventory analytics dashboard with automated data cleaning, weekly trend charts,
+              and Z-score anomaly detection (global &amp; per-SKU modes) for spotting unusual quantities and delays.
+            </p>
+            <div class="tags">
+              <span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">Pandas</span><span class="tag">Plotly</span>
+            </div>
+          </article>
+
+          <!-- RoboType -->
+          <article class="card reveal">
+            <div class="card__top">
+              <div class="card__icon">⌨️</div>
+              <div class="card__links">
+                <a href="https://github.com/PavanB9/RoboType" target="_blank" rel="noopener" class="card__link" title="Source" aria-label="GitHub source">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12 11.5 11.5 0 0 0 8.4 23c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0C17 5 18 5.3 18 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="card__title">RoboType</h3>
+            <p class="card__desc">
+              A desktop typing simulator that reproduces human input — variable speeds, realistic typos with
+              auto-corrections, and natural pauses at punctuation. Built with Swing and <code>java.awt.Robot</code>,
+              shipped as a runnable JAR.
+            </p>
+            <div class="tags">
+              <span class="tag">Java</span><span class="tag">Swing</span><span class="tag">Automation</span>
+            </div>
+          </article>
+
+          <!-- pkc-monitor -->
+          <article class="card reveal">
+            <div class="card__top">
+              <div class="card__icon">🔔</div>
+              <div class="card__links">
+                <a href="https://github.com/PavanB9/pkc-monitor" target="_blank" rel="noopener" class="card__link" title="Source" aria-label="GitHub source">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12 11.5 11.5 0 0 0 8.4 23c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0C17 5 18 5.3 18 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="card__title">PKC Monitor</h3>
+            <p class="card__desc">
+              Lightweight Windows tool that watches a storefront for virtual-queue activation and new arrivals,
+              firing native notifications, sound alerts, and Discord webhooks. Read-only, privacy-first, and tray-friendly.
+            </p>
+            <div class="tags">
+              <span class="tag">Python</span><span class="tag">Requests</span><span class="tag">Webhooks</span>
+            </div>
+          </article>
+
+          <!-- SimpleScrollSC -->
+          <article class="card reveal">
+            <div class="card__top">
+              <div class="card__icon">🖼️</div>
+              <div class="card__links">
+                <a href="https://github.com/PavanB9/SimpleScrollSC" target="_blank" rel="noopener" class="card__link" title="Source" aria-label="GitHub source">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12 11.5 11.5 0 0 0 8.4 23c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0C17 5 18 5.3 18 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="card__title">SimpleScrollSC</h3>
+            <p class="card__desc">
+              A scrolling screenshot tool that captures a window section by section and stitches it into one
+              high-resolution image. Point-and-click window picking, PNG/JPEG output, fully offline — no telemetry.
+            </p>
+            <div class="tags">
+              <span class="tag">C#</span><span class="tag">.NET 8</span><span class="tag">Desktop</span>
+            </div>
+          </article>
+
+          <!-- DiscordEmojiGifBot -->
+          <article class="card reveal">
+            <div class="card__top">
+              <div class="card__icon">🤖</div>
+              <div class="card__links">
+                <a href="https://github.com/PavanB9/DiscordEmojiGifBot" target="_blank" rel="noopener" class="card__link" title="Source" aria-label="GitHub source">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12 11.5 11.5 0 0 0 8.4 23c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0C17 5 18 5.3 18 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="card__title">Discord Emoji GIF Bot</h3>
+            <p class="card__desc">
+              A Discord bot that fakes animated emoji by rapidly editing a message through frame sequences.
+              Slash-command driven with multiple moods, per-user rate limiting, and minimal gateway permissions.
+            </p>
+            <div class="tags">
+              <span class="tag">JavaScript</span><span class="tag">Node.js</span><span class="tag">discord.js</span>
+            </div>
+          </article>
+
+          <!-- See all -->
+          <a class="card card--cta reveal" href="https://github.com/PavanB9?tab=repositories" target="_blank" rel="noopener">
+            <div class="card--cta__inner">
+              <span class="card--cta__icon">→</span>
+              <h3 class="card__title">More on GitHub</h3>
+              <p class="card__desc">Browse the rest of my repositories, experiments, and works in progress.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SKILLS ===================== -->
+    <section class="section" id="skills">
+      <div class="container">
+        <p class="eyebrow reveal"><span>04</span> Skills</p>
+        <h2 class="h2 reveal">My toolbox</h2>
+        <div class="skills">
+          <div class="skillgroup reveal">
+            <h3>Languages</h3>
+            <div class="chips">
+              <span class="chip">Python</span><span class="chip">Java</span><span class="chip">JavaScript</span>
+              <span class="chip">C#</span><span class="chip">SQL</span><span class="chip">HTML / CSS</span>
+            </div>
+          </div>
+          <div class="skillgroup reveal">
+            <h3>Frameworks &amp; Web</h3>
+            <div class="chips">
+              <span class="chip">React</span><span class="chip">Node.js</span><span class="chip">Streamlit</span>
+              <span class="chip">REST APIs</span><span class="chip">.NET</span>
+            </div>
+          </div>
+          <div class="skillgroup reveal">
+            <h3>Data &amp; Analysis</h3>
+            <div class="chips">
+              <span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">Plotly</span>
+              <span class="chip">Matplotlib</span><span class="chip">scikit-learn</span><span class="chip">Excel</span>
+            </div>
+          </div>
+          <div class="skillgroup reveal">
+            <h3>Tools &amp; Practices</h3>
+            <div class="chips">
+              <span class="chip">Git / GitHub</span><span class="chip">Linux</span><span class="chip">Docker</span>
+              <span class="chip">OpenAI API</span><span class="chip">Testing</span><span class="chip">VS Code</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CERTIFICATIONS ===================== -->
+    <section class="section" id="certs">
+      <div class="container">
+        <p class="eyebrow reveal"><span>05</span> Certifications</p>
+        <h2 class="h2 reveal">Continuous learning</h2>
+        <div class="certs">
+          <div class="cert reveal">
+            <div class="cert__top"><h3>Intro to Cybersecurity</h3><span class="cert__year">2025</span></div>
+            <p class="cert__org">CodePath · <em>completed with honors</em></p>
+            <p class="cert__desc">Linux CLI, SSH/RDP, networking exploits, Metasploit, social engineering (SET), malware detection, and privacy tooling.</p>
+          </div>
+          <div class="cert reveal">
+            <div class="cert__top"><h3>Machine Learning with Python</h3><span class="cert__year">2024</span></div>
+            <p class="cert__org">IBM</p>
+            <p class="cert__desc">Supervised &amp; unsupervised learning; built Python programs for data analysis and model visualization.</p>
+          </div>
+          <div class="cert reveal">
+            <div class="cert__top"><h3>Java &amp; Object-Oriented Programming</h3><span class="cert__year">2024</span></div>
+            <p class="cert__org">University of Pennsylvania</p>
+            <p class="cert__desc">Core OOP — classes, polymorphism, method overloading — with hands-on Java collections and syntax.</p>
+          </div>
+          <div class="cert reveal">
+            <div class="cert__top"><h3>Git &amp; GitHub</h3><span class="cert__year">2024</span></div>
+            <p class="cert__org">IBM</p>
+            <p class="cert__desc">Version control workflows: repositories, branches, pull requests, merges, cloning, and forking.</p>
+          </div>
+          <div class="cert reveal">
+            <div class="cert__top"><h3>Cybersecurity Virtual Experience</h3><span class="cert__year">2024</span></div>
+            <p class="cert__org">Mastercard · Forage</p>
+            <p class="cert__desc">Acted as a Security Awareness analyst — identified phishing threats and flagged teams needing stronger training.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section class="section section--contact" id="contact">
+      <div class="container contact">
+        <p class="eyebrow reveal"><span>06</span> Contact</p>
+        <h2 class="h2 reveal">Let's build something.</h2>
+        <p class="contact__lead reveal">
+          I'm actively looking for Software Engineering internship opportunities and always happy to talk shop.
+          The fastest way to reach me is email.
+        </p>
+        <a class="btn btn--primary btn--lg reveal" href="mailto:pavankrishna2006@gmail.com">Say hello →</a>
+        <div class="contact__links reveal">
+          <a href="https://github.com/PavanB9" target="_blank" rel="noopener">GitHub</a>
+          <span>·</span>
+          <a href="https://linkedin.com/in/pavankbl/" target="_blank" rel="noopener">LinkedIn</a>
+          <span>·</span>
+          <a href="assets/Pavan_Bandla_Resume.pdf" target="_blank" rel="noopener">Résumé</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span class="footer__brand">&gt;_ pavan.bandla</span>
+      <span class="footer__meta">© <span id="year"></span> Pavan Krishna Bandla Leelavinod · Built from scratch, no templates.</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

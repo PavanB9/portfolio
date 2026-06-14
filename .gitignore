@@ -1,0 +1,21 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+
+# Python (serve.py is stdlib-only, but just in case)
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.pdflib/
+
+# Node (not used, but guard against future tooling)
+node_modules/
+
+# Logs / temp
+*.log
+.cache/
