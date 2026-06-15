@@ -114,14 +114,72 @@
     typed.textContent = "Computer Science student";
   }
 
-  /* ---------- Pointer parallax on the liquid blobs ---------- */
-  var blobs = document.querySelector(".blobs");
-  if (blobs && window.matchMedia("(pointer: fine)").matches &&
-      !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  /* ---------- Pointer interactions: background + glass ---------- */
+  var finePointer = window.matchMedia("(pointer: fine)").matches;
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (finePointer && !reduceMotion) {
+    var blobs = document.querySelector(".blobs");
+    var glow = document.getElementById("cursorGlow");
+
+    // raw + smoothed (lerp) pointer in pixels; start centered
+    var px = window.innerWidth / 2, py = window.innerHeight / 2;
+    var gx = px, gy = py;           // smoothed glow position
+    var bx = 0, by = 0, bxT = 0, byT = 0;  // smoothed blob parallax offset
+    var ticking = false;
+
+    var loop = function () {
+      // ease toward targets for buttery motion
+      gx += (px - gx) * 0.14;  gy += (py - gy) * 0.14;
+      bx += (bxT - bx) * 0.08; by += (byT - by) * 0.08;
+
+      if (glow) glow.style.transform = "translate(" + gx + "px," + gy + "px)";
+      if (blobs) blobs.style.transform = "translate(" + bx + "px," + by + "px)";
+
+      // keep animating only while there's meaningful movement
+      if (Math.abs(px - gx) > 0.3 || Math.abs(py - gy) > 0.3 ||
+          Math.abs(bxT - bx) > 0.3 || Math.abs(byT - by) > 0.3) {
+        requestAnimationFrame(loop);
+      } else { ticking = false; }
+    };
+    var kick = function () { if (!ticking) { ticking = true; requestAnimationFrame(loop); } };
+
     window.addEventListener("mousemove", function (e) {
-      var x = (e.clientX / window.innerWidth - 0.5) * 26;
-      var y = (e.clientY / window.innerHeight - 0.5) * 26;
-      blobs.style.transform = "translate(" + x + "px," + y + "px)";
+      px = e.clientX; py = e.clientY;
+      // blob parallax: subtle, opposite-ish drift from screen center
+      bxT = (px / window.innerWidth - 0.5) * 28;
+      byT = (py / window.innerHeight - 0.5) * 28;
+      if (glow) glow.classList.add("on");
+      kick();
+
+      // glass spotlight: light up the panel under the cursor
+      var el = e.target.closest && e.target.closest(".glass");
+      if (el) {
+        var r = el.getBoundingClientRect();
+        el.style.setProperty("--mx", (((e.clientX - r.left) / r.width) * 100).toFixed(1) + "%");
+        el.style.setProperty("--my", (((e.clientY - r.top) / r.height) * 100).toFixed(1) + "%");
+      }
     }, { passive: true });
+
+    window.addEventListener("mouseleave", function () {
+      if (glow) glow.classList.remove("on");
+    });
+
+    /* gentle 3D tilt toward the cursor on showcase cards */
+    var tiltEls = document.querySelectorAll(".card, .profile");
+    tiltEls.forEach(function (el) {
+      el.addEventListener("mouseenter", function () { el.style.transition = "transform 0.1s ease-out"; });
+      el.addEventListener("mousemove", function (e) {
+        var r = el.getBoundingClientRect();
+        var rx = (0.5 - (e.clientY - r.top) / r.height) * 6;
+        var ry = ((e.clientX - r.left) / r.width - 0.5) * 6;
+        el.style.transform = "perspective(900px) rotateX(" + rx.toFixed(2) +
+                             "deg) rotateY(" + ry.toFixed(2) + "deg) translateY(-6px)";
+      }, { passive: true });
+      el.addEventListener("mouseleave", function () {
+        el.style.transition = "";   // let the CSS transition ease it back
+        el.style.transform = "";
+      });
+    });
   }
 })();
