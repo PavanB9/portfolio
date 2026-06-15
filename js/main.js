@@ -129,38 +129,56 @@
     var px = window.innerWidth / 2, py = window.innerHeight / 2;
     var gx = px, gy = py;           // glow (slow trail)
     var rx = px, ry = py;           // ring (medium trail)
-    var bx = 0, by = 0, bxT = 0, byT = 0;  // blob pointer-parallax offset
-    var SCROLL_FACTOR = 0.22;
-    var syT = -window.scrollY * SCROLL_FACTOR, sy = syT;  // blob scroll-parallax offset
-    var ticking = false;
+    var bx = 0, by = 0, bxT = 0, byT = 0;       // smoothed pointer parallax
+    var sc = window.scrollY, scT = sc;           // smoothed scroll position
+    var t0 = performance.now();
+    var running = false;
+
+    // Take blob motion over from CSS so JS can combine drift + pointer + scroll.
+    // The .blobs CONTAINER stays locked to the viewport (never translated), so it
+    // always fills the screen and the background can never hard-cut on scroll —
+    // only the blobs inside it move.
+    var blobData = [];
+    if (blobs) {
+      Array.prototype.forEach.call(blobs.querySelectorAll(".blob"), function (el, i) {
+        el.style.animation = "none";
+        blobData.push({
+          el: el,
+          ax: 34 + i * 10, ay: 28 + i * 7,                        // drift amplitude (px)
+          fx: 0.00006 + i * 0.000018, fy: 0.00008 + i * 0.000013, // drift speed
+          ph: i * 1.7,                                            // phase
+          pd: 0.45 + i * 0.18,                                    // pointer depth
+          sd: [-0.18, 0.26, -0.24, 0.16][i] || 0.2               // scroll depth (mixed dirs)
+        });
+      });
+    }
 
     var loop = function () {
+      var t = performance.now() - t0;
       // ease toward targets for buttery motion
       gx += (px - gx) * 0.12;  gy += (py - gy) * 0.12;
       rx += (px - rx) * 0.22;  ry += (py - ry) * 0.22;
       bx += (bxT - bx) * 0.08; by += (byT - by) * 0.08;
-      sy += (syT - sy) * 0.10;
+      sc += (scT - sc) * 0.12;
 
-      if (dot)   dot.style.transform  = "translate(" + px + "px," + py + "px) translate(-50%,-50%)";
-      if (ring)  ring.style.transform = "translate(" + rx + "px," + ry + "px) translate(-50%,-50%)";
-      if (glow)  glow.style.transform = "translate(" + gx + "px," + gy + "px)";
-      if (blobs) blobs.style.transform = "translate(" + bx + "px," + (by + sy) + "px)";
+      if (dot)  dot.style.transform  = "translate(" + px + "px," + py + "px) translate(-50%,-50%)";
+      if (ring) ring.style.transform = "translate(" + rx + "px," + ry + "px) translate(-50%,-50%)";
+      if (glow) glow.style.transform = "translate(" + gx + "px," + gy + "px)";
 
-      // keep animating only while there's meaningful movement
-      if (Math.abs(px - gx) > 0.3 || Math.abs(py - gy) > 0.3 ||
-          Math.abs(px - rx) > 0.3 || Math.abs(py - ry) > 0.3 ||
-          Math.abs(bxT - bx) > 0.3 || Math.abs(byT - by) > 0.3 ||
-          Math.abs(syT - sy) > 0.3) {
-        requestAnimationFrame(loop);
-      } else { ticking = false; }
+      // each blob = slow drift + pointer parallax + scroll parallax (mixed
+      // directions so color stays present throughout the page)
+      for (var i = 0; i < blobData.length; i++) {
+        var b = blobData[i];
+        var tx = Math.sin(t * b.fx + b.ph) * b.ax + bx * b.pd;
+        var ty = Math.cos(t * b.fy + b.ph) * b.ay + by * b.pd - sc * b.sd;
+        b.el.style.transform = "translate(" + tx.toFixed(1) + "px," + ty.toFixed(1) + "px)";
+      }
+      requestAnimationFrame(loop);
     };
-    var kick = function () { if (!ticking) { ticking = true; requestAnimationFrame(loop); } };
+    var kick = function () { if (!running) { running = true; requestAnimationFrame(loop); } };
 
-    // background drifts as the page scrolls
-    window.addEventListener("scroll", function () {
-      syT = -window.scrollY * SCROLL_FACTOR;
-      kick();
-    }, { passive: true });
+    window.addEventListener("scroll", function () { scT = window.scrollY; }, { passive: true });
+    kick();  // background motion is always on (drift + scroll + pointer)
 
     window.addEventListener("mousemove", function (e) {
       px = e.clientX; py = e.clientY;
