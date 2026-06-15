@@ -129,7 +129,9 @@
     var px = window.innerWidth / 2, py = window.innerHeight / 2;
     var gx = px, gy = py;           // glow (slow trail)
     var rx = px, ry = py;           // ring (medium trail)
-    var bx = 0, by = 0, bxT = 0, byT = 0;  // blob parallax offset
+    var bx = 0, by = 0, bxT = 0, byT = 0;  // blob pointer-parallax offset
+    var SCROLL_FACTOR = 0.22;
+    var syT = -window.scrollY * SCROLL_FACTOR, sy = syT;  // blob scroll-parallax offset
     var ticking = false;
 
     var loop = function () {
@@ -137,20 +139,28 @@
       gx += (px - gx) * 0.12;  gy += (py - gy) * 0.12;
       rx += (px - rx) * 0.22;  ry += (py - ry) * 0.22;
       bx += (bxT - bx) * 0.08; by += (byT - by) * 0.08;
+      sy += (syT - sy) * 0.10;
 
       if (dot)   dot.style.transform  = "translate(" + px + "px," + py + "px) translate(-50%,-50%)";
       if (ring)  ring.style.transform = "translate(" + rx + "px," + ry + "px) translate(-50%,-50%)";
       if (glow)  glow.style.transform = "translate(" + gx + "px," + gy + "px)";
-      if (blobs) blobs.style.transform = "translate(" + bx + "px," + by + "px)";
+      if (blobs) blobs.style.transform = "translate(" + bx + "px," + (by + sy) + "px)";
 
       // keep animating only while there's meaningful movement
       if (Math.abs(px - gx) > 0.3 || Math.abs(py - gy) > 0.3 ||
           Math.abs(px - rx) > 0.3 || Math.abs(py - ry) > 0.3 ||
-          Math.abs(bxT - bx) > 0.3 || Math.abs(byT - by) > 0.3) {
+          Math.abs(bxT - bx) > 0.3 || Math.abs(byT - by) > 0.3 ||
+          Math.abs(syT - sy) > 0.3) {
         requestAnimationFrame(loop);
       } else { ticking = false; }
     };
     var kick = function () { if (!ticking) { ticking = true; requestAnimationFrame(loop); } };
+
+    // background drifts as the page scrolls
+    window.addEventListener("scroll", function () {
+      syT = -window.scrollY * SCROLL_FACTOR;
+      kick();
+    }, { passive: true });
 
     window.addEventListener("mousemove", function (e) {
       px = e.clientX; py = e.clientY;
