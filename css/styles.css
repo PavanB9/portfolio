@@ -115,17 +115,34 @@ code { font-family: var(--mono); font-size: 0.9em; }
               color-mix(in srgb, var(--a1) 22%, transparent), transparent 60%);
 }
 
-/* ---------- Liquid blobs background ---------- */
-/* .blobs is parallax-shifted by the pointer (main.js); each blob also drifts
-   on its own for an always-alive background. Soft color comes from the
-   radial-gradient falloff — no expensive blur filter, so it stays smooth. */
-.blobs { position: fixed; inset: 0; z-index: -2; overflow: hidden; will-change: transform; }
-.blob { position: absolute; border-radius: 50%; opacity: 0.6; will-change: transform; }
-.blob--1 { width: 50vw; height: 50vw; top: -14%;  left: -10%;  background: radial-gradient(circle, var(--a1), transparent 60%); animation: drift1 24s var(--ease) infinite alternate; }
-.blob--2 { width: 46vw; height: 46vw; top: -10%;   right: -12%; background: radial-gradient(circle, var(--a2), transparent 60%); animation: drift2 30s var(--ease) infinite alternate; }
-.blob--3 { width: 44vw; height: 44vw; bottom: -18%; left: 10%;  background: radial-gradient(circle, var(--a3), transparent 60%); animation: drift3 27s var(--ease) infinite alternate; }
-.blob--4 { width: 38vw; height: 38vw; bottom: -22%; right: 4%;  background: radial-gradient(circle, var(--a2), transparent 60%); opacity: 0.45; animation: drift1 33s var(--ease) infinite alternate-reverse; }
-[data-theme="light"] .blob { opacity: 0.5; }
+/* ---------- Full-coverage tinted base ----------
+   A smooth, always-present color field behind everything. Because the whole
+   viewport is covered with soft color (never plain black), the moving blobs
+   float over color instead of a dark void — so there's no hard edge to "cut"
+   to, no matter how the blobs drift or the page scrolls. Fixed = covers the
+   viewport at every scroll position. */
+.bg-base {
+  position: fixed; inset: 0; z-index: -3; pointer-events: none;
+  background:
+    radial-gradient(95% 75% at 16% 10%,  color-mix(in srgb, var(--a1) 34%, transparent), transparent 62%),
+    radial-gradient(85% 72% at 88% 16%,  color-mix(in srgb, var(--a2) 30%, transparent), transparent 62%),
+    radial-gradient(95% 82% at 82% 92%,  color-mix(in srgb, var(--a2) 26%, transparent), transparent 64%),
+    radial-gradient(90% 82% at 10% 90%,  color-mix(in srgb, var(--a3) 28%, transparent), transparent 64%),
+    radial-gradient(80% 70% at 50% 52%,  color-mix(in srgb, var(--a1) 18%, transparent), transparent 66%),
+    var(--bg);
+}
+
+/* ---------- Liquid blobs background ----------
+   Brighter accents that drift + react to pointer/scroll (main.js). The .blobs
+   CONTAINER is locked to the viewport (never translated) — only the blobs move,
+   so the background can never hard-cut on scroll. */
+.blobs { position: fixed; inset: 0; z-index: -2; overflow: hidden; }
+.blob { position: absolute; border-radius: 50%; opacity: 0.45; will-change: transform; }
+.blob--1 { width: 52vw; height: 52vw; top: -16%;  left: -12%;  background: radial-gradient(circle, var(--a1), transparent 66%); animation: drift1 24s var(--ease) infinite alternate; }
+.blob--2 { width: 48vw; height: 48vw; top: -12%;   right: -14%; background: radial-gradient(circle, var(--a2), transparent 66%); animation: drift2 30s var(--ease) infinite alternate; }
+.blob--3 { width: 46vw; height: 46vw; bottom: -20%; left: 8%;   background: radial-gradient(circle, var(--a3), transparent 66%); animation: drift3 27s var(--ease) infinite alternate; }
+.blob--4 { width: 40vw; height: 40vw; bottom: -24%; right: 2%;  background: radial-gradient(circle, var(--a2), transparent 66%); opacity: 0.35; animation: drift1 33s var(--ease) infinite alternate-reverse; }
+[data-theme="light"] .blob { opacity: 0.4; }
 @keyframes drift1 { to { transform: translate(6vw, 5vh) scale(1.12); } }
 @keyframes drift2 { to { transform: translate(-5vw, 7vh) scale(1.08); } }
 @keyframes drift3 { to { transform: translate(5vw, -6vh) scale(1.15); } }
