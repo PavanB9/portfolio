@@ -1,9 +1,26 @@
-# Pavan Bandla — Portfolio
+# 👋 Pavan Bandla — Personal Portfolio
 
-A fast, modern, single-page CS portfolio. Built from scratch with **vanilla HTML, CSS, and
-JavaScript** — no frameworks, no build step, and **zero external dependencies** (system fonts,
-inline SVG icons). Everything is self-contained in this folder, so it works offline and deploys
-anywhere.
+My personal Computer Science portfolio website.
+
+### 🌐 **[View it live → pavanb9.github.io/portfolio](https://pavanb9.github.io/portfolio/)**
+
+---
+
+I'm a CS student at **Rutgers University** ('28) who likes building practical tools — turning
+messy data into clear decisions and repetitive work into automation. This site is the home for
+my projects, experience, and ways to reach me.
+
+**Find me:**
+[Live site](https://pavanb9.github.io/portfolio/) ·
+[LinkedIn](https://linkedin.com/in/pavankbl/) ·
+[GitHub](https://github.com/PavanB9) ·
+[Email](mailto:pavankrishna2006@gmail.com)
+
+## Built with
+
+Hand-written **HTML, CSS, and JavaScript** — no frameworks, no build step, and zero external
+dependencies (system fonts + inline SVG icons). It's fast, works offline, and is hosted free on
+GitHub Pages.
 
 ## Structure
 
@@ -12,45 +29,32 @@ Site/
 ├── index.html      # all page content
 ├── css/styles.css  # design system, layout, animations, light/dark themes
 ├── js/main.js      # typing effect, scroll reveals, active nav, theme toggle, mobile menu
-├── assets/         # résumé PDF (linked from the nav & contact)
-├── serve.py        # tiny stdlib-only local preview server
+├── assets/         # résumé PDF
+├── serve.py        # tiny local preview server (Python stdlib only)
 └── README.md
 ```
 
-## View it locally
+## Notes to self
 
-**Option A — just open it.** Double-click `index.html`. (The résumé link works best via a server.)
-
-**Option B — run the local server (recommended):**
+**Preview locally:**
 
 ```powershell
-python serve.py
+python serve.py        # opens http://localhost:8000
 ```
 
-This serves the site at <http://localhost:8000> and opens your browser automatically.
-It uses only Python's standard library — nothing to `pip install`.
+**Update the live site** — edit, then:
 
-## Features
+```powershell
+git add -A
+git commit -m "what changed"
+git push
+```
 
-- Dark/light theme toggle (remembers your choice)
-- Animated terminal hero + rotating typewriter role
-- Scroll-reveal animations and scroll-spy navigation
-- Fully responsive with a mobile menu
-- Respects `prefers-reduced-motion`
-- Accessible markup, semantic sections, Open Graph tags
+GitHub Pages rebuilds automatically in a minute or two.
 
-## Customize
+**Quick tweaks:** colors live in the CSS variables at the top of `css/styles.css`
+(`:root` / `[data-theme="light"]`); the rotating hero titles are the `phrases` array in `js/main.js`.
 
-- **Content:** edit `index.html` (each section is clearly commented).
-- **Colors/spacing:** tweak the CSS variables at the top of `css/styles.css` (`:root` and
-  `[data-theme="light"]`).
-- **Hero roles:** edit the `phrases` array in `js/main.js`.
-- **Résumé:** replace `assets/Pavan_Bandla_Resume.pdf`.
+---
 
-## Deploy
-
-It's a static site, so any static host works:
-
-- **GitHub Pages:** push to a repo and enable Pages on the default branch (`/root`).
-- **Netlify / Vercel / Cloudflare Pages:** drag-and-drop the folder, or connect the repo —
-  no build command needed, publish directory is `/`.
+© Pavan Krishna Bandla Leelavinod
