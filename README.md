@@ -27,9 +27,8 @@ GitHub Pages.
 ```
 Site/
 ├── index.html      # all page content
-├── css/styles.css  # design system, layout, animations, light/dark themes
+├── css/styles.css  # "liquid glass" design system, layout, animations, light/dark themes
 ├── js/main.js      # typing effect, scroll reveals, active nav, theme toggle, mobile menu
-├── assets/         # résumé PDF
 ├── serve.py        # tiny local preview server (Python stdlib only)
 └── README.md
 ```

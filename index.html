@@ -9,25 +9,29 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="Pavan Bandla — Computer Science" />
-  <meta property="og:description" content="CS student at Rutgers building practical tools that turn messy data into clear decisions." />
+  <meta property="og:description" content="CS student at Rutgers building practical software — data dashboards, automation, and tools that solve real problems." />
   <meta property="og:type" content="website" />
 
-  <!-- Inline SVG favicon: a terminal monogram -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230d1117'/%3E%3Cpath d='M26 34l16 16-16 16' fill='none' stroke='%2367e8f9' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cline x1='52' y1='68' x2='74' y2='68' stroke='%23a78bfa' stroke-width='8' stroke-linecap='round'/%3E%3C/svg%3E" />
+  <!-- Inline SVG favicon -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23818cf8'/%3E%3Cstop offset='.5' stop-color='%23e879f9'/%3E%3Cstop offset='1' stop-color='%2338bdf8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='26' fill='url(%23g)'/%3E%3Ctext x='50' y='68' font-family='Arial,sans-serif' font-size='52' font-weight='700' fill='%23fff' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E" />
 
   <link rel="preconnect" href="https://github.com" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <!-- ambient background -->
-  <div class="bg-grid" aria-hidden="true"></div>
-  <div class="bg-glow" aria-hidden="true"></div>
+  <!-- liquid-glass ambient background -->
+  <div class="blobs" aria-hidden="true">
+    <span class="blob blob--1"></span>
+    <span class="blob blob--2"></span>
+    <span class="blob blob--3"></span>
+    <span class="blob blob--4"></span>
+  </div>
 
   <!-- ===================== NAV ===================== -->
   <header class="nav" id="nav">
-    <div class="container nav__inner">
+    <div class="nav__inner glass">
       <a href="#home" class="brand" aria-label="Home">
-        <span class="brand__mark">&gt;_</span>
+        <span class="brand__dot-mark"></span>
         <span class="brand__name">pavan<span class="brand__dot">.</span>bandla</span>
       </a>
 
@@ -45,7 +49,6 @@
           <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
           <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
         </button>
-        <a class="btn btn--ghost resume-link" href="assets/Pavan_Bandla_Resume.pdf" target="_blank" rel="noopener">Résumé</a>
         <button class="icon-btn nav__burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
@@ -58,59 +61,62 @@
     <section class="hero section" id="home">
       <div class="container hero__inner">
         <div class="hero__copy reveal">
-          <p class="pill"><span class="pulse"></span> Available for SWE internships</p>
+          <p class="pill glass"><span class="pulse"></span> Available for SWE internships</p>
           <h1 class="hero__title">
-            Hi, I'm <span class="grad">Pavan&nbsp;Bandla</span>.
+            Hi, I'm <span class="grad">Pavan</span>.
           </h1>
           <h2 class="hero__role">
-            <span class="prompt">$</span>
-            <span id="typed" class="typed"></span><span class="caret">▌</span>
+            <span id="typed" class="typed"></span><span class="caret">|</span>
           </h2>
           <p class="hero__lead">
-            Computer Science student at <strong>Rutgers University</strong> who builds practical tools —
-            turning messy data into clear decisions and repetitive work into automation.
-            Currently seeking a <strong>Software Engineering internship</strong>.
+            Computer Science student at <strong>Rutgers University</strong>. I build practical software —
+            from data dashboards to automation tools — and I'm looking for a
+            <strong>Software Engineering internship</strong>.
           </p>
           <div class="hero__cta">
             <a href="#projects" class="btn btn--primary">View Projects</a>
-            <a href="#contact" class="btn btn--ghost">Get in touch</a>
+            <a href="#contact" class="btn btn--glass">Get in touch</a>
           </div>
           <div class="hero__socials" aria-label="Social links">
-            <a href="https://github.com/PavanB9" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+            <a href="https://github.com/PavanB9" target="_blank" rel="noopener" class="glass" aria-label="GitHub" title="GitHub">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12 11.5 11.5 0 0 0 8.4 23c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0C17 5 18 5.3 18 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
             </a>
-            <a href="https://linkedin.com/in/pavankbl/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+            <a href="https://linkedin.com/in/pavankbl/" target="_blank" rel="noopener" class="glass" aria-label="LinkedIn" title="LinkedIn">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V21H9z"/></svg>
             </a>
-            <a href="mailto:pavankrishna2006@gmail.com" aria-label="Email" title="Email">
+            <a href="mailto:pavankrishna2006@gmail.com" class="glass" aria-label="Email" title="Email">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
             </a>
           </div>
         </div>
 
-        <!-- terminal mockup -->
-        <div class="hero__term reveal" aria-hidden="true">
-          <div class="term">
-            <div class="term__bar">
-              <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
-              <span class="term__title">pavan@portfolio: ~</span>
+        <!-- glass profile card -->
+        <div class="hero__card reveal">
+          <div class="glass profile">
+            <div class="profile__glow" aria-hidden="true"></div>
+            <div class="profile__head">
+              <div class="avatar">PB</div>
+              <div class="profile__id">
+                <p class="profile__name">Pavan Bandla</p>
+                <p class="profile__sub">CS Student · Rutgers '28</p>
+              </div>
             </div>
-            <pre class="term__body"><code><span class="c-cmd">$ whoami</span>
-pavan_bandla
-<span class="c-cmd">$ cat about.txt</span>
-CS @ Rutgers '28 · New Jersey
-builds tools that ship.
-<span class="c-cmd">$ ls ~/stack</span>
-<span class="c-dir">python</span>  <span class="c-dir">java</span>  <span class="c-dir">javascript</span>
-<span class="c-dir">react</span>   <span class="c-dir">sql</span>   <span class="c-dir">c#</span>
-<span class="c-cmd">$ ./contact --now</span>
-<span class="c-ok">➜ opening channels...</span><span class="caret caret--term">▌</span></code></pre>
+            <ul class="profile__rows">
+              <li><span class="prow__ico">◎</span> New Jersey, USA</li>
+              <li><span class="prow__ico">✦</span> B.S. Computer Science</li>
+              <li><span class="prow__ico">⌁</span> Software &amp; data tooling</li>
+            </ul>
+            <div class="profile__stack">
+              <span class="chip chip--sm">Python</span>
+              <span class="chip chip--sm">Java</span>
+              <span class="chip chip--sm">JavaScript</span>
+              <span class="chip chip--sm">React</span>
+              <span class="chip chip--sm">SQL</span>
+            </div>
           </div>
         </div>
       </div>
-      <a href="#about" class="scroll-cue" aria-label="Scroll down">
-        <span></span>
-      </a>
+      <a href="#about" class="scroll-cue" aria-label="Scroll down"><span></span></a>
     </section>
 
     <!-- ===================== ABOUT ===================== -->
@@ -119,37 +125,36 @@ builds tools that ship.
         <p class="eyebrow reveal"><span>01</span> About</p>
         <div class="about">
           <div class="about__text reveal">
-            <h2 class="h2">A builder who likes shipping useful things.</h2>
+            <h2 class="h2">I turn problems into software.</h2>
             <p>
-              I'm a Computer Science student at <strong>Rutgers University–New Brunswick</strong> (B.S., May 2028).
-              I gravitate toward problems where good engineering quietly makes someone's day easier —
-              cleaning up messy inventory exports, automating a tedious workflow, or turning raw data
-              into a dashboard that actually answers a question.
+              I'm a Computer Science student at <strong>Rutgers University–New Brunswick</strong> (B.S., 2028).
+              I focus on building software that solves real problems — cleaning up messy data, automating
+              repetitive work, and turning raw numbers into dashboards people can actually use.
             </p>
             <p>
-              I've shipped features on a production analytics dashboard, prototyped AI-assisted tooling
-              with the OpenAI API, and built a handful of side projects across Python, Java, JavaScript,
-              and C#. I care about clean code, readable docs, and tools that respect the people using them.
+              I've shipped features on a production analytics dashboard, prototyped AI-assisted tooling with
+              the OpenAI API, and built side projects across Python, Java, JavaScript, and C#. I care about
+              writing clean code and clear documentation.
             </p>
             <p>
-              Outside of class, you'll usually find me building something small and practical —
-              or reverse-engineering how something works so I can rebuild it better.
+              Outside of class, I'm usually building something small and practical — or taking something
+              apart to figure out how it works.
             </p>
           </div>
           <aside class="about__facts reveal">
-            <div class="fact">
+            <div class="fact glass">
               <span class="fact__k">Education</span>
               <span class="fact__v">Rutgers University<br><em>B.S. Computer Science · '28</em></span>
             </div>
-            <div class="fact">
+            <div class="fact glass">
               <span class="fact__k">Location</span>
               <span class="fact__v">New Jersey, USA</span>
             </div>
-            <div class="fact">
+            <div class="fact glass">
               <span class="fact__k">Focus</span>
               <span class="fact__v">Software Engineering · Data &amp; Automation</span>
             </div>
-            <div class="fact">
+            <div class="fact glass">
               <span class="fact__k">Status</span>
               <span class="fact__v"><span class="pulse pulse--inline"></span>Open to internships</span>
             </div>
@@ -166,7 +171,7 @@ builds tools that ship.
         <ol class="timeline">
           <li class="tl reveal">
             <div class="tl__dot"></div>
-            <div class="tl__card">
+            <div class="tl__card glass">
               <div class="tl__head">
                 <h3>Data Analyst — Warehouse</h3>
                 <span class="tl__date">Jun 2025 – Jul 2025</span>
@@ -185,7 +190,7 @@ builds tools that ship.
 
           <li class="tl reveal">
             <div class="tl__dot"></div>
-            <div class="tl__card">
+            <div class="tl__card glass">
               <div class="tl__head">
                 <h3>Software Engineer</h3>
                 <span class="tl__date">Feb 2025 – May 2025</span>
@@ -216,7 +221,7 @@ builds tools that ship.
 
         <div class="grid">
           <!-- InvTrendDB -->
-          <article class="card reveal">
+          <article class="card glass reveal">
             <div class="card__top">
               <div class="card__icon">📊</div>
               <div class="card__links">
@@ -229,7 +234,10 @@ builds tools that ship.
               </div>
             </div>
             <h3 class="card__title">InvTrendDB</h3>
-            <p class="card__badge">Live demo</p>
+            <a class="card__badge" href="https://invtrend-db.streamlit.app" target="_blank" rel="noopener" title="Open the live app">
+              <span class="card__badge-dot"></span> Live demo
+              <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+            </a>
             <p class="card__desc">
               Interactive inventory analytics dashboard with automated data cleaning, weekly trend charts,
               and Z-score anomaly detection (global &amp; per-SKU modes) for spotting unusual quantities and delays.
@@ -240,7 +248,7 @@ builds tools that ship.
           </article>
 
           <!-- RoboType -->
-          <article class="card reveal">
+          <article class="card glass reveal">
             <div class="card__top">
               <div class="card__icon">⌨️</div>
               <div class="card__links">
@@ -261,7 +269,7 @@ builds tools that ship.
           </article>
 
           <!-- pkc-monitor -->
-          <article class="card reveal">
+          <article class="card glass reveal">
             <div class="card__top">
               <div class="card__icon">🔔</div>
               <div class="card__links">
@@ -281,7 +289,7 @@ builds tools that ship.
           </article>
 
           <!-- SimpleScrollSC -->
-          <article class="card reveal">
+          <article class="card glass reveal">
             <div class="card__top">
               <div class="card__icon">🖼️</div>
               <div class="card__links">
@@ -301,7 +309,7 @@ builds tools that ship.
           </article>
 
           <!-- DiscordEmojiGifBot -->
-          <article class="card reveal">
+          <article class="card glass reveal">
             <div class="card__top">
               <div class="card__icon">🤖</div>
               <div class="card__links">
@@ -321,7 +329,7 @@ builds tools that ship.
           </article>
 
           <!-- See all -->
-          <a class="card card--cta reveal" href="https://github.com/PavanB9?tab=repositories" target="_blank" rel="noopener">
+          <a class="card card--cta glass reveal" href="https://github.com/PavanB9?tab=repositories" target="_blank" rel="noopener">
             <div class="card--cta__inner">
               <span class="card--cta__icon">→</span>
               <h3 class="card__title">More on GitHub</h3>
@@ -338,28 +346,28 @@ builds tools that ship.
         <p class="eyebrow reveal"><span>04</span> Skills</p>
         <h2 class="h2 reveal">My toolbox</h2>
         <div class="skills">
-          <div class="skillgroup reveal">
+          <div class="skillgroup glass reveal">
             <h3>Languages</h3>
             <div class="chips">
               <span class="chip">Python</span><span class="chip">Java</span><span class="chip">JavaScript</span>
               <span class="chip">C#</span><span class="chip">SQL</span><span class="chip">HTML / CSS</span>
             </div>
           </div>
-          <div class="skillgroup reveal">
+          <div class="skillgroup glass reveal">
             <h3>Frameworks &amp; Web</h3>
             <div class="chips">
               <span class="chip">React</span><span class="chip">Node.js</span><span class="chip">Streamlit</span>
               <span class="chip">REST APIs</span><span class="chip">.NET</span>
             </div>
           </div>
-          <div class="skillgroup reveal">
+          <div class="skillgroup glass reveal">
             <h3>Data &amp; Analysis</h3>
             <div class="chips">
               <span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">Plotly</span>
               <span class="chip">Matplotlib</span><span class="chip">scikit-learn</span><span class="chip">Excel</span>
             </div>
           </div>
-          <div class="skillgroup reveal">
+          <div class="skillgroup glass reveal">
             <h3>Tools &amp; Practices</h3>
             <div class="chips">
               <span class="chip">Git / GitHub</span><span class="chip">Linux</span><span class="chip">Docker</span>
@@ -376,27 +384,27 @@ builds tools that ship.
         <p class="eyebrow reveal"><span>05</span> Certifications</p>
         <h2 class="h2 reveal">Continuous learning</h2>
         <div class="certs">
-          <div class="cert reveal">
+          <div class="cert glass reveal">
             <div class="cert__top"><h3>Intro to Cybersecurity</h3><span class="cert__year">2025</span></div>
             <p class="cert__org">CodePath · <em>completed with honors</em></p>
             <p class="cert__desc">Linux CLI, SSH/RDP, networking exploits, Metasploit, social engineering (SET), malware detection, and privacy tooling.</p>
           </div>
-          <div class="cert reveal">
+          <div class="cert glass reveal">
             <div class="cert__top"><h3>Machine Learning with Python</h3><span class="cert__year">2024</span></div>
             <p class="cert__org">IBM</p>
             <p class="cert__desc">Supervised &amp; unsupervised learning; built Python programs for data analysis and model visualization.</p>
           </div>
-          <div class="cert reveal">
+          <div class="cert glass reveal">
             <div class="cert__top"><h3>Java &amp; Object-Oriented Programming</h3><span class="cert__year">2024</span></div>
             <p class="cert__org">University of Pennsylvania</p>
             <p class="cert__desc">Core OOP — classes, polymorphism, method overloading — with hands-on Java collections and syntax.</p>
           </div>
-          <div class="cert reveal">
+          <div class="cert glass reveal">
             <div class="cert__top"><h3>Git &amp; GitHub</h3><span class="cert__year">2024</span></div>
             <p class="cert__org">IBM</p>
             <p class="cert__desc">Version control workflows: repositories, branches, pull requests, merges, cloning, and forking.</p>
           </div>
-          <div class="cert reveal">
+          <div class="cert glass reveal">
             <div class="cert__top"><h3>Cybersecurity Virtual Experience</h3><span class="cert__year">2024</span></div>
             <p class="cert__org">Mastercard · Forage</p>
             <p class="cert__desc">Acted as a Security Awareness analyst — identified phishing threats and flagged teams needing stronger training.</p>
@@ -419,8 +427,6 @@ builds tools that ship.
           <a href="https://github.com/PavanB9" target="_blank" rel="noopener">GitHub</a>
           <span>·</span>
           <a href="https://linkedin.com/in/pavankbl/" target="_blank" rel="noopener">LinkedIn</a>
-          <span>·</span>
-          <a href="assets/Pavan_Bandla_Resume.pdf" target="_blank" rel="noopener">Résumé</a>
         </div>
       </div>
     </section>
@@ -429,8 +435,8 @@ builds tools that ship.
   <!-- ===================== FOOTER ===================== -->
   <footer class="footer">
     <div class="container footer__inner">
-      <span class="footer__brand">&gt;_ pavan.bandla</span>
-      <span class="footer__meta">© <span id="year"></span> Pavan Krishna Bandla Leelavinod · Built from scratch, no templates.</span>
+      <span class="footer__brand">pavan.bandla</span>
+      <span class="footer__meta">© <span id="year"></span> Pavan Krishna Bandla Leelavinod · Built from scratch.</span>
     </div>
   </footer>
 

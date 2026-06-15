@@ -94,8 +94,8 @@
     var phrases = [
       "Computer Science student",
       "Software Engineer",
-      "Builder of practical tools",
-      "Data & automation tinkerer"
+      "I build practical tools.",
+      "Data & automation."
     ];
     var pi = 0, ci = 0, deleting = false;
     var tick = function () {
@@ -114,13 +114,14 @@
     typed.textContent = "Computer Science student";
   }
 
-  /* ---------- Pointer-reactive glow on hero ---------- */
-  var glow = document.querySelector(".bg-glow");
-  if (glow && window.matchMedia("(pointer: fine)").matches) {
+  /* ---------- Pointer parallax on the liquid blobs ---------- */
+  var blobs = document.querySelector(".blobs");
+  if (blobs && window.matchMedia("(pointer: fine)").matches &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     window.addEventListener("mousemove", function (e) {
-      var x = (e.clientX / window.innerWidth - 0.5) * 30;
-      var y = (e.clientY / window.innerHeight - 0.5) * 20;
-      glow.style.transform = "translateX(-50%) translate(" + x + "px," + y + "px)";
+      var x = (e.clientX / window.innerWidth - 0.5) * 26;
+      var y = (e.clientY / window.innerHeight - 0.5) * 26;
+      blobs.style.transform = "translate(" + x + "px," + y + "px)";
     }, { passive: true });
   }
 })();
