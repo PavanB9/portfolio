@@ -121,23 +121,31 @@
   if (finePointer && !reduceMotion) {
     var blobs = document.querySelector(".blobs");
     var glow = document.getElementById("cursorGlow");
+    var dot  = document.getElementById("cursorDot");
+    var ring = document.getElementById("cursorRing");
+    var interactiveSel = "a, button, .card, .icon-btn, .chip, .tag, .card__link, .card__badge, .profile";
 
     // raw + smoothed (lerp) pointer in pixels; start centered
     var px = window.innerWidth / 2, py = window.innerHeight / 2;
-    var gx = px, gy = py;           // smoothed glow position
-    var bx = 0, by = 0, bxT = 0, byT = 0;  // smoothed blob parallax offset
+    var gx = px, gy = py;           // glow (slow trail)
+    var rx = px, ry = py;           // ring (medium trail)
+    var bx = 0, by = 0, bxT = 0, byT = 0;  // blob parallax offset
     var ticking = false;
 
     var loop = function () {
       // ease toward targets for buttery motion
-      gx += (px - gx) * 0.14;  gy += (py - gy) * 0.14;
+      gx += (px - gx) * 0.12;  gy += (py - gy) * 0.12;
+      rx += (px - rx) * 0.22;  ry += (py - ry) * 0.22;
       bx += (bxT - bx) * 0.08; by += (byT - by) * 0.08;
 
-      if (glow) glow.style.transform = "translate(" + gx + "px," + gy + "px)";
+      if (dot)   dot.style.transform  = "translate(" + px + "px," + py + "px) translate(-50%,-50%)";
+      if (ring)  ring.style.transform = "translate(" + rx + "px," + ry + "px) translate(-50%,-50%)";
+      if (glow)  glow.style.transform = "translate(" + gx + "px," + gy + "px)";
       if (blobs) blobs.style.transform = "translate(" + bx + "px," + by + "px)";
 
       // keep animating only while there's meaningful movement
       if (Math.abs(px - gx) > 0.3 || Math.abs(py - gy) > 0.3 ||
+          Math.abs(px - rx) > 0.3 || Math.abs(py - ry) > 0.3 ||
           Math.abs(bxT - bx) > 0.3 || Math.abs(byT - by) > 0.3) {
         requestAnimationFrame(loop);
       } else { ticking = false; }
@@ -146,11 +154,18 @@
 
     window.addEventListener("mousemove", function (e) {
       px = e.clientX; py = e.clientY;
-      // blob parallax: subtle, opposite-ish drift from screen center
+      // blob parallax: subtle drift from screen center
       bxT = (px / window.innerWidth - 0.5) * 28;
       byT = (py / window.innerHeight - 0.5) * 28;
+
+      document.body.classList.add("custom-cursor");
       if (glow) glow.classList.add("on");
-      kick();
+
+      // ring expands over interactive elements
+      if (ring) {
+        var inter = e.target.closest && e.target.closest(interactiveSel);
+        ring.classList.toggle("grow", !!inter);
+      }
 
       // glass spotlight: light up the panel under the cursor
       var el = e.target.closest && e.target.closest(".glass");
@@ -159,10 +174,13 @@
         el.style.setProperty("--mx", (((e.clientX - r.left) / r.width) * 100).toFixed(1) + "%");
         el.style.setProperty("--my", (((e.clientY - r.top) / r.height) * 100).toFixed(1) + "%");
       }
+      kick();
     }, { passive: true });
 
-    window.addEventListener("mouseleave", function () {
+    // restore normal cursor when the pointer leaves the window
+    document.addEventListener("mouseleave", function () {
       if (glow) glow.classList.remove("on");
+      document.body.classList.remove("custom-cursor");
     });
 
     /* gentle 3D tilt toward the cursor on showcase cards */

@@ -140,6 +140,23 @@ code { font-family: var(--mono); font-size: 0.9em; }
 .cursor-glow.on { opacity: 0.65; }
 [data-theme="light"] .cursor-glow.on { opacity: 0.45; }
 
+/* ---------- Custom cursor (dot + trailing ring) ---------- */
+.cursor-dot, .cursor-ring {
+  position: fixed; top: 0; left: 0; border-radius: 50%; pointer-events: none;
+  z-index: 9999; transform: translate(-50%, -50%); opacity: 0;
+  transition: opacity 0.3s var(--ease); mix-blend-mode: difference;
+}
+.cursor-dot { width: 7px; height: 7px; background: #fff; }
+.cursor-ring {
+  width: 30px; height: 30px; border: 1.5px solid #fff;
+  transition: width 0.22s var(--ease), height 0.22s var(--ease),
+              background 0.22s var(--ease), opacity 0.3s var(--ease);
+}
+.cursor-ring.grow { width: 58px; height: 58px; background: rgba(255, 255, 255, 0.15); }
+body.custom-cursor { cursor: none; }
+body.custom-cursor .cursor-dot, body.custom-cursor .cursor-ring { opacity: 1; }
+@media (hover: none), (pointer: coarse) { .cursor-dot, .cursor-ring { display: none !important; } }
+
 /* ---------- Nav (floating glass pill) ---------- */
 .nav {
   position: fixed; z-index: 50; top: 16px; left: 50%; transform: translateX(-50%);
@@ -413,7 +430,8 @@ code { font-family: var(--mono); font-size: 0.9em; }
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
   .reveal { opacity: 1; transform: none; }
   .blob { animation: none; }
-  .cursor-glow { display: none; }
+  .cursor-glow, .cursor-dot, .cursor-ring { display: none; }
+  body.custom-cursor { cursor: auto; }
 }
 
 /* ---------- Responsive ---------- */
