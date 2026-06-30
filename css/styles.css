@@ -13,9 +13,9 @@
   --faint:     #8c867b;
 
   /* accent gradient (liquid) — stone tones */
-  --a1: #8d97a8;   /* slate stone */
-  --a2: #bda88c;   /* warm sandstone */
-  --a3: #9aab90;   /* sage greige */
+  --a1: #8298c2;   /* slate stone */
+  --a2: #d0a974;   /* warm sandstone */
+  --a3: #94b681;   /* sage greige */
   --grad: linear-gradient(120deg, var(--a1), var(--a2) 50%, var(--a3));
   --accent: var(--a1);
   --green: #34d399;
@@ -43,9 +43,9 @@
   --muted:     #5b574d;
   --faint:     #8c877b;
 
-  --a1: #5f6a7d;   /* slate stone */
-  --a2: #97785a;   /* warm clay stone */
-  --a3: #6f7d63;   /* moss stone */
+  --a1: #4f6390;   /* slate stone */
+  --a2: #9c7340;   /* warm clay stone */
+  --a3: #5e7a4c;   /* moss stone */
   --green: #059669;
 
   --glass-bg:     rgba(255, 255, 255, 0.55);
