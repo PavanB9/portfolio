@@ -7,15 +7,15 @@
 /* ---------- Design tokens ---------- */
 :root {
   /* base */
-  --bg:        #06060d;
-  --text:      #f4f5fb;
-  --muted:     #b7bccd;
-  --faint:     #828aa0;
+  --bg:        #0d0c0b;
+  --text:      #f4f2ee;
+  --muted:     #c2bdb4;
+  --faint:     #8c867b;
 
-  /* accent gradient (liquid) */
-  --a1: #818cf8;   /* indigo  */
-  --a2: #e879f9;   /* fuchsia */
-  --a3: #38bdf8;   /* sky     */
+  /* accent gradient (liquid) — stone tones */
+  --a1: #8d97a8;   /* slate stone */
+  --a2: #bda88c;   /* warm sandstone */
+  --a3: #9aab90;   /* sage greige */
   --grad: linear-gradient(120deg, var(--a1), var(--a2) 50%, var(--a3));
   --accent: var(--a1);
   --green: #34d399;
@@ -38,21 +38,21 @@
 }
 
 [data-theme="light"] {
-  --bg:        #eaecf6;
-  --text:      #181a26;
-  --muted:     #515871;
-  --faint:     #858ca4;
+  --bg:        #eae7e0;
+  --text:      #201f1b;
+  --muted:     #5b574d;
+  --faint:     #8c877b;
 
-  --a1: #6366f1;
-  --a2: #d946ef;
-  --a3: #0ea5e9;
+  --a1: #5f6a7d;   /* slate stone */
+  --a2: #97785a;   /* warm clay stone */
+  --a3: #6f7d63;   /* moss stone */
   --green: #059669;
 
   --glass-bg:     rgba(255, 255, 255, 0.55);
   --glass-bg-2:   rgba(255, 255, 255, 0.72);
   --glass-border: rgba(255, 255, 255, 0.85);
   --glass-hi:     rgba(255, 255, 255, 0.95);
-  --glass-shadow: 0 18px 50px -14px rgba(70, 80, 150, 0.28);
+  --glass-shadow: 0 18px 50px -14px rgba(70, 62, 48, 0.26);
 }
 
 /* ---------- Reset ---------- */
