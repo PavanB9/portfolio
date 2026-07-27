@@ -8,7 +8,7 @@ My personal Computer Science portfolio website.
 [Live site](https://pavanb9.github.io/portfolio/) ·
 [LinkedIn](https://linkedin.com/in/pavankbl/) ·
 [GitHub](https://github.com/PavanB9) ·
-[Email](mailto:pavankrishna2006@gmail.com)
+[Email](mailto:pavanbandla99@gmail.com)
 
 ## Structure
 
