@@ -401,6 +401,13 @@ body.custom-cursor .cursor-dot, body.custom-cursor .cursor-ring { opacity: 1; }
 .card__badge:hover { transform: translateY(-1px); background: color-mix(in srgb, var(--green) 20%, transparent); box-shadow: 0 4px 14px -4px color-mix(in srgb, var(--green) 55%, transparent); }
 .card__badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
 
+/* static badge for projects with no public link yet */
+.card__badge--muted {
+  color: var(--faint); border-color: var(--glass-border); background: var(--glass-bg-2);
+}
+.card__badge--muted:hover { transform: none; box-shadow: none; }
+.card__badge--muted .card__badge-dot { background: var(--faint); animation: none; }
+
 .card--cta { justify-content: center; text-align: center; }
 .card--cta__inner { display: grid; place-items: center; gap: 6px; position: relative; z-index: 1; }
 .card--cta__icon { font-size: 1.8rem; color: var(--a1); transition: transform 0.3s var(--ease); }
